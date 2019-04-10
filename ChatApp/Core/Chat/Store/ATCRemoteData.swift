@@ -24,9 +24,9 @@ class ATCRemoteData{
                 }else{
                     // Uncomment to see all documents in this user's org
                     // Usually a bad thing though, only use to debug and do not release
-//                    for document in querySnapshot!.documents {
-//                        print("\(document.documentID) => \(document.data())")
-//                    }
+                    for document in querySnapshot!.documents {
+                        print("\(document.documentID) => \(document.data())")
+                    }
                 }
             }
         }

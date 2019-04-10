@@ -11,11 +11,11 @@ import UIKit
 
 class ATCChatMockStore {
     static let users = [
-        ATCUser(uid: "dan", firstName: "Dan", lastName: "Burkhardt", avatarURL: "https://cdn0.iconfinder.com/data/icons/avatar-2/500/man-2-512.png", email: "test@gigabitelabs.com", isOnline: false),
-        ATCUser(uid: "simulator", firstName: "iPhone", lastName: "Simulator", avatarURL: "https://cdn-images-1.medium.com/max/1000/1*QUmlH0_tRyjlbxVkSKtk3A.png", email: "testcristina@gmail.com", isOnline: true),
-        ATCUser(uid: "sandra", firstName: "Sandra", lastName: "O'Connor", avatarURL: "https://cdn0.iconfinder.com/data/icons/people-avatar-flat/64/girl_ginger_curly_people_woman_teenager_avatar-512.png", email: "testcristina@gmail.com", isOnline: true),
-        ATCUser(uid: "sam", firstName: "Sam", lastName: "Smith", avatarURL: "https://cdn1.iconfinder.com/data/icons/avatar-2-2/512/Programmer-512.png", email: "testcristina@gmail.com", isOnline: false),
-        ATCUser(uid: "tom", firstName: "Tom", lastName: "Bradley", avatarURL: "https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/4_avatar-512.png", email: "testcristina@gmail.com", isOnline: true),
+        ATCUser(uid: "guid-dan-001", username: "dan", firstName: "Dan", lastName: "Burkhardt", avatarURL: "https://cdn0.iconfinder.com/data/icons/avatar-2/500/man-2-512.png", email: "test@gigabitelabs.com", isOnline: false),
+        ATCUser(uid: "guid-simulator-001", username: "simulator", firstName: "iPhone", lastName: "Simulator", avatarURL: "https://cdn-images-1.medium.com/max/1000/1*QUmlH0_tRyjlbxVkSKtk3A.png", email: "testcristina@gmail.com", isOnline: true),
+        ATCUser(uid: "guid-sandra-001", username: "sandra", firstName: "Sandra", lastName: "O'Connor", avatarURL: "https://cdn0.iconfinder.com/data/icons/people-avatar-flat/64/girl_ginger_curly_people_woman_teenager_avatar-512.png", email: "testcristina@gmail.com", isOnline: true),
+        ATCUser(uid: "guid-sam-001", username: "sam", firstName: "Sam", lastName: "Smith", avatarURL: "https://cdn1.iconfinder.com/data/icons/avatar-2-2/512/Programmer-512.png", email: "testcristina@gmail.com", isOnline: false),
+        ATCUser(uid: "guid-tom-001", username: "tom",  firstName: "Tom", lastName: "Bradley", avatarURL: "https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/4_avatar-512.png", email: "testcristina@gmail.com", isOnline: true),
         ]
  
     // HEY AGAIN: set the users for stcSender and atcRecipient on one of these so that one is the user

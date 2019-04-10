@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // For testing, set this to a usr from 0-4 and run it to your simulator
         // Then, set it to any other user and run it to your phone. THEN-> see my comment in ATCChatMockStore.swift
-        let user = 2
+        let user = 1 // simulator
         // If both devices have a different user active, AND the chat thread is available, you can msg live
         
         
@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                             threadsDataSource: threadsDataSource,
                                                             viewer: ATCChatMockStore.users[user])
         
-        print("currentUser: \(ATCChatMockStore.users[user].debugDescription)")
+        print("currentUser: \(ATCChatMockStore.users[user].username)!")
         window?.makeKeyAndVisible()
 
         return true

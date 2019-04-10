@@ -96,9 +96,17 @@ class ATCChatHomeViewController: ATCGenericCollectionViewController {
                                                   inputTextViewTextColor: .black,
                                                   inputPlaceholderTextColor: UIColor(hexString: "#979797"))
             if let user = object as? ATCUser {
-                let id1 = (user.uid ?? "")
-                let id2 = (viewer.uid ?? "")
-                let channelId = "\(id1):\(id2)"
+//                let id1 = (user.uid ?? "")
+//                let id2 = (viewer.uid ?? "")
+//                let channelId = "\(id1):\(id2)"
+                
+                let str1 = "\(user.uid ?? "")|\(user.username ?? "")"
+                let str2 = "\(viewer.uid ?? "")|\(viewer.username ?? "")"
+                var channelId = "\(str1):\(str2)"
+                if str2 < str1 {
+                    channelId = "\(str2):\(str1)"
+                }
+                
                 print("loading thread for channelID: \(channelId)")
                 let vc = ATCChatThreadViewController(user: viewer, channel: ATCChatChannel(id: channelId, name: user.fullName()), uiConfig: uiConfig)
                 navController?.pushViewController(vc, animated: true)

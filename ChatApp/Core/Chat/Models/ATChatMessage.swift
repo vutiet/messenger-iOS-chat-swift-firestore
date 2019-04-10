@@ -66,6 +66,9 @@ class ATChatMessage: ATCGenericBaseModel, MessageType {
         guard let senderID = data["senderID"] as? String else {
             return nil
         }
+        guard let senderUserName = data["senderUsername"] as? String else {
+            return nil
+        }
         guard let senderFirstName = data["senderFirstName"] as? String else {
             return nil
         }
@@ -76,6 +79,9 @@ class ATChatMessage: ATCGenericBaseModel, MessageType {
             return nil
         }
         guard let recipientID = data["recipientID"] as? String else {
+            return nil
+        }
+        guard let recipientUserName = data["recipientUsername"] as? String else {
             return nil
         }
         guard let recipientFirstName = data["recipientFirstName"] as? String else {
@@ -91,8 +97,8 @@ class ATChatMessage: ATCGenericBaseModel, MessageType {
         id = document.documentID
 
         self.sentDate = sentDate
-        self.atcSender = ATCUser(uid: senderID, firstName: senderFirstName, lastName: senderLastName, avatarURL: senderProfilePictureURL)
-        self.recipient = ATCUser(uid: recipientID, firstName: recipientFirstName, lastName: recipientLastName, avatarURL: recipientProfilePictureURL)
+        self.atcSender = ATCUser(uid: senderID, username: senderUserName, firstName: senderFirstName, lastName: senderLastName, avatarURL: senderProfilePictureURL)
+        self.recipient = ATCUser(uid: recipientID, username: recipientUserName, firstName: recipientFirstName, lastName: recipientLastName, avatarURL: recipientProfilePictureURL)
 
         if let content = data["content"] as? String {
             self.content = content
@@ -125,9 +131,20 @@ class ATChatMessage: ATCGenericBaseModel, MessageType {
     }
     
     var channelId: String {
-        let id1 = (recipient.uid ?? "")
-        let id2 = (atcSender.uid ?? "")
-        return "\(id1):\(id2)"
+//        let id1 = (recipient.uid ?? "")
+//        let id2 = (atcSender.uid ?? "")
+//        let name1 = recipient.username ?? ""
+//        let name2 = atcSender.username ?? ""
+        
+        let str1 = "\(recipient.uid ?? "")|\(recipient.username ?? "")"
+        let str2 = "\(atcSender.uid ?? "")|\(atcSender.username ?? "")"
+        
+        if str1 < str2 {
+            return "\(str1):\(str2)"
+        } else {
+            return "\(str2):\(str1)"
+        }
+        
     }
 }
 
@@ -137,10 +154,12 @@ extension ATChatMessage: DatabaseRepresentation {
         var rep: [String : Any] = [
             "created": sentDate,
             "senderID": atcSender.uid ?? "",
+            "senderUsername": atcSender.username ?? "",
             "senderFirstName": atcSender.firstName ?? "",
             "senderLastName": atcSender.lastName ?? "",
             "senderProfilePictureURL": atcSender.profilePictureURL ?? "",
             "recipientID": recipient.uid ?? "",
+            "recipientUsername": recipient.username ?? "",
             "recipientFirstName": recipient.firstName ?? "",
             "recipientLastName": recipient.lastName ?? "",
             "recipientProfilePictureURL": atcSender.profilePictureURL ?? "",

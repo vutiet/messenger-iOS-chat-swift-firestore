@@ -18,9 +18,10 @@ open class ATCUser: NSObject, ATCGenericBaseModel {
     var profilePictureURL: String?
     var isOnline: Bool
 
-    public init(uid: String = "", firstName: String, lastName: String, avatarURL: String = "", email: String = "", isOnline: Bool = false) {
+    public init(uid: String = "", username: String, firstName: String, lastName: String, avatarURL: String = "", email: String = "", isOnline: Bool = false) {
         self.firstName = firstName
         self.lastName = lastName
+        self.username = username
         self.uid = uid
         self.email = email
         self.profilePictureURL = avatarURL

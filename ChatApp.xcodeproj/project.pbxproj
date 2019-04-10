@@ -107,6 +107,7 @@
 		2AF1AC1E7033E8282532FB3F /* Pods_ChatApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98920945FDBDABCFBD182CF5 /* Pods_ChatApp.framework */; };
 		376585B92243223D00EEB2EC /* ATCRemoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376585B82243223D00EEB2EC /* ATCRemoteData.swift */; };
 		3784F6AD2239B6E200D78EF4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3784F6AC2239B6E200D78EF4 /* GoogleService-Info.plist */; };
+		B924359A225DCC20009B0FC3 /* NM3FirebaseConversationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9243599225DCC20009B0FC3 /* NM3FirebaseConversationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -213,6 +214,7 @@
 		376585B82243223D00EEB2EC /* ATCRemoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATCRemoteData.swift; sourceTree = "<group>"; };
 		3784F6AC2239B6E200D78EF4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		98920945FDBDABCFBD182CF5 /* Pods_ChatApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9243599225DCC20009B0FC3 /* NM3FirebaseConversationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NM3FirebaseConversationService.swift; sourceTree = "<group>"; };
 		DFCA2BC4108D73FF4A807779 /* Pods-ChatApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatApp/Pods-ChatApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F17EAD33D7A1CBFDE1C32E23 /* Pods-ChatApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatApp/Pods-ChatApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -258,6 +260,7 @@
 				171120642128F45A008C7FBE /* ChatUIConfiguration.swift */,
 				3784F6AC2239B6E200D78EF4 /* GoogleService-Info.plist */,
 				171120662128F4EA008C7FBE /* ChatHostViewController.swift */,
+				B9243599225DCC20009B0FC3 /* NM3FirebaseConversationService.swift */,
 			);
 			path = ChatApp;
 			sourceTree = "<group>";
@@ -635,7 +638,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChatApp/Pods-ChatApp-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-ChatApp/Pods-ChatApp-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -644,7 +647,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChatApp/Pods-ChatApp-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChatApp/Pods-ChatApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		994045FF338E9BA81F802AF2 /* [CP] Embed Pods Frameworks */ = {
@@ -653,7 +656,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChatApp/Pods-ChatApp-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-ChatApp/Pods-ChatApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
@@ -698,7 +701,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChatApp/Pods-ChatApp-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChatApp/Pods-ChatApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F9EDF6937E14E4642BBAC31F /* [CP] Check Pods Manifest.lock */ = {
@@ -768,6 +771,7 @@
 				17A2B8C42148C1AD0071D01F /* ATCViewControllerContainerRowAdapter.swift in Sources */,
 				171120672128F4EA008C7FBE /* ChatHostViewController.swift in Sources */,
 				17A2B9962148C1AE0071D01F /* LayoutConstraint.swift in Sources */,
+				B924359A225DCC20009B0FC3 /* NM3FirebaseConversationService.swift in Sources */,
 				17A2B8712148C1AC0071D01F /* ATCChatThreadsViewController.swift in Sources */,
 				17A2B9582148C1AE0071D01F /* ATCUIGenericConfigurationProtocol.swift in Sources */,
 				178ECB3F21F7F85600E58A80 /* Typealiases.swift in Sources */,

@@ -57,6 +57,12 @@ class ChatHostViewController: UIViewController, UITabBarControllerDelegate {
         super.viewDidLoad()
         self.addChildViewControllerWithView(hostController)
         hostController.view.backgroundColor = uiConfig.mainThemeBackgroundColor
+        
+        NM3FirebaseConversationService.fetchConversations(userId: "dan") { (threads) in
+            for thread in threads {
+                print("thread: \(thread.messageId) ----- \(thread.channelId)")
+            }
+        }
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
