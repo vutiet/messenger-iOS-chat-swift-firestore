@@ -22,18 +22,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
 
         let threadsDataSource = ATCGenericLocalHeteroDataSource(items: ATCChatMockStore.threads)
+//        let threadsDataSource = ATCGenericLocalHeteroDataSource(items: [ATChatMessage]()) // start with empty collection
         
         // HEY THERE, user. read the next few lines below
         // Helper file to access remote data for a user
-        let remoteData = ATCRemoteData()
+//        let remoteData = ATCRemoteData()
         // Checks if user's firestore actually has channels setup
-        remoteData.getChannels()
+//        remoteData.getChannels()
         
         // For testing, set this to a usr from 0-4 and run it to your simulator
         // Then, set it to any other user and run it to your phone. THEN-> see my comment in ATCChatMockStore.swift
         let user = 1 // simulator
         // If both devices have a different user active, AND the chat thread is available, you can msg live
-        
         
         // Window setup
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                             threadsDataSource: threadsDataSource,
                                                             viewer: ATCChatMockStore.users[user])
         
-        print("currentUser: \(ATCChatMockStore.users[user].username)!")
+        print("currentUser: \(ATCChatMockStore.users[user].username!)")
         window?.makeKeyAndVisible()
 
         return true

@@ -10,13 +10,15 @@ import UIKit
 
 class ChatHostViewController: UIViewController, UITabBarControllerDelegate {
 
-    let homeVC: UIViewController
+    var homeVC: ATCChatHomeViewController
     let uiConfig: ATCUIGenericConfigurationProtocol
+    var viewer: ATCUser
 
     init(uiConfig: ATCUIGenericConfigurationProtocol,
          threadsDataSource: ATCGenericCollectionViewControllerDataSource,
          viewer: ATCUser) {
         self.uiConfig = uiConfig
+        self.viewer = viewer
         self.homeVC = ATCChatHomeViewController.homeVC(uiConfig: uiConfig, threadsDataSource: threadsDataSource, viewer: viewer)
         super.init(nibName: nil, bundle: nil)
     }
@@ -58,14 +60,22 @@ class ChatHostViewController: UIViewController, UITabBarControllerDelegate {
         self.addChildViewControllerWithView(hostController)
         hostController.view.backgroundColor = uiConfig.mainThemeBackgroundColor
         
-        NM3FirebaseConversationService.fetchConversations(userId: "dan") { (threads) in
-            for thread in threads {
-                print("thread: \(thread.messageId) ----- \(thread.channelId)")
-            }
-        }
+        fetchConversations()
     }
-
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return uiConfig.statusBarStyle
+    }
+    
+    private func fetchConversations() {
+        NM3FirebaseConversationService.fetchConversations(userId: "dan") { (threads) in
+            for thread in threads {
+//                print("thread: \(thread.messageId) ----- \(thread.channelId)")
+                self.homeVC.threadsVC?.genericDataSource?.addObject(newObject: thread)
+            }
+            DispatchQueue.main.async {
+                self.homeVC.threadsVC?.genericDataSource?.loadFirst()
+            }
+        }
     }
 }

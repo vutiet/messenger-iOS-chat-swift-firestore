@@ -11,9 +11,10 @@ import UIKit
 class ATCGenericLocalHeteroDataSource: ATCGenericCollectionViewControllerDataSource {
     weak var delegate: ATCGenericCollectionViewControllerDataSourceDelegate?
 
-    let items: [ATCGenericBaseModel]
+    var items: [ATCGenericBaseModel]
 
     init(items: [ATCGenericBaseModel]) {
+        print("set items: \(items.count)")
         self.items = items
     }
 
@@ -25,7 +26,8 @@ class ATCGenericLocalHeteroDataSource: ATCGenericCollectionViewControllerDataSou
     }
 
     func numberOfObjects() -> Int {
-        return items.count
+        print("numberOfObjects: \(items.count)")
+        return self.items.count
     }
 
     func loadFirst() {
@@ -33,8 +35,20 @@ class ATCGenericLocalHeteroDataSource: ATCGenericCollectionViewControllerDataSou
     }
 
     func loadBottom() {
+//        self.delegate?.genericCollectionViewControllerDataSource(self, didLoadBottom: items)
     }
 
     func loadTop() {
+    }
+    
+    func removeAll() {
+        items.removeAll()
+    }
+    
+    func addObject(newObject: ATCGenericBaseModel) {
+//        items.removeLast()
+//        items[0] = newObject
+        self.items.append(newObject)
+        print("addObject: \(items.count)")
     }
 }

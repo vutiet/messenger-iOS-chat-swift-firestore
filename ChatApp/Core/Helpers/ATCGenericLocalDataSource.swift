@@ -40,4 +40,12 @@ class ATCGenericLocalDataSource<T: ATCGenericBaseModel>: ATCGenericCollectionVie
         self.items = items
         self.delegate?.genericCollectionViewControllerDataSource(self, didLoadFirst: items)
     }
+    
+    func removeAll() {
+        
+    }
+    
+    func addObject(newObject: ATCGenericBaseModel) {
+        print("addObject")
+    }
 }

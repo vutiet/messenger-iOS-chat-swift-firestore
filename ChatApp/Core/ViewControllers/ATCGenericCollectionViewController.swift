@@ -38,6 +38,8 @@ protocol ATCGenericCollectionViewControllerDataSource: class {
     func loadFirst()
     func loadBottom()
     func loadTop()
+    func removeAll()
+    func addObject(newObject: ATCGenericBaseModel)
 }
 
 protocol ATCGenericCollectionRowAdapter: class {
@@ -187,6 +189,7 @@ class ATCGenericCollectionViewController: UICollectionViewController {
 
 extension ATCGenericCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("collectionView cellForItemAt: \(indexPath.item)")
         if let object = genericDataSource?.object(at: indexPath.row) {
             let stringClass = String(describing: type(of: object))
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: stringClass, for: indexPath)
@@ -251,6 +254,12 @@ extension ATCGenericCollectionViewController {
 
 extension ATCGenericCollectionViewController: ATCLiquidLayoutDelegate {
     func collectionView(collectionView: UICollectionView, heightForCellAtIndexPath indexPath: IndexPath, width: CGFloat) -> CGFloat {
+        if collectionView.tag == 333 && indexPath.item == 1  {
+            let firstIndexPath = IndexPath(item: 0, section: 0)
+            let firstItemHeight = self.size(collectionView: collectionView, indexPath: firstIndexPath).height
+            let height = collectionView.frame.size.height - firstItemHeight - 200
+            return height
+        }
         return self.size(collectionView: collectionView, indexPath: indexPath).height
     }
 
@@ -265,6 +274,7 @@ extension ATCGenericCollectionViewController: UICollectionViewDelegateFlowLayout
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        print("================== sizeForItemAt \(indexPath.item): \(self.size(collectionView: collectionView, indexPath: indexPath))")
         return self.size(collectionView: collectionView, indexPath: indexPath)
     }
 }

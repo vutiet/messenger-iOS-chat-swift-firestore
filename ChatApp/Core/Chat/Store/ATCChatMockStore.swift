@@ -22,6 +22,14 @@ class ATCChatMockStore {
     // for your simulator, the other one is your device
     static let threads = [
         ATChatMessage(messageId: "1", messageKind: MessageKind.text("TestThread"), createdAt: Date().yesterday, atcSender: users[2], recipient: users[0], seenByRecipient: false),// <- try this one
-        ATChatMessage(messageId: "2", messageKind: MessageKind.text("\u{1F631} Wow, it's real time"), createdAt: Date().yesterday, atcSender: users[1], recipient: users[0], seenByRecipient: true)
+        ATChatMessage(messageId: "2", messageKind: MessageKind.text("\u{1F631} Wow, it's real time"), createdAt: Date().yesterday, atcSender: users[1], recipient: users[0], seenByRecipient: true),
+        ATChatMessage(messageId: "2", messageKind: MessageKind.text("\u{1F631} Wow, it's real time"), createdAt: Date().yesterday, atcSender: users[1], recipient: users[0], seenByRecipient: true),
+        ATChatMessage(messageId: "2", messageKind: MessageKind.text("\u{1F631} Wow, it's real time"), createdAt: Date().yesterday, atcSender: users[1], recipient: users[0], seenByRecipient: true),
+        ATChatMessage(messageId: "2", messageKind: MessageKind.text("\u{1F631} Wow, it's real time"), createdAt: Date().yesterday, atcSender: users[1], recipient: users[0], seenByRecipient: true),
+        ATChatMessage(messageId: "2", messageKind: MessageKind.text("\u{1F631} Wow, it's real time"), createdAt: Date().yesterday, atcSender: users[1], recipient: users[0], seenByRecipient: true),
+        ATChatMessage(messageId: "2", messageKind: MessageKind.text("\u{1F631} Wow, it's real time"), createdAt: Date().yesterday, atcSender: users[1], recipient: users[0], seenByRecipient: true),
+        ATChatMessage(messageId: "2", messageKind: MessageKind.text("\u{1F631} Wow, it's real time"), createdAt: Date().yesterday, atcSender: users[1], recipient: users[0], seenByRecipient: true),
+        ATChatMessage(messageId: "2", messageKind: MessageKind.text("\u{1F631} Wow, it's real time"), createdAt: Date().yesterday, atcSender: users[1], recipient: users[0], seenByRecipient: true),
+        ATChatMessage(messageId: "3", messageKind: MessageKind.text("\u{1F631} Wow, it's real time newwwww"), createdAt: Date().yesterday, atcSender: users[3], recipient: users[4], seenByRecipient: true)
     ]
 }

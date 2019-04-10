@@ -81,4 +81,12 @@ class ATCGenericFirebaseDataSource<T: ATCGenericBaseModel & ATCGenericFirebasePa
         }
         return res
     }
+    
+    func removeAll() {
+        
+    }
+    
+    func addObject(newObject: ATCGenericBaseModel) {
+        
+    }
 }

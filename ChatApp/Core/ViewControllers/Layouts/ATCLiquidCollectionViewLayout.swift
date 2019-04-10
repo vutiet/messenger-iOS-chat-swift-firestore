@@ -81,6 +81,7 @@ public class ATCLiquidCollectionViewLayout: ATCCollectionViewFlowLayout {
                 cache.append(attributes) // #6
 
                 contentHeight = max(contentHeight, frame.maxY)
+                print("dmm contentHeight: \(contentHeight)")
                 yOffset[column] = yOffset[column] + height
 
                 if column >= (numberOfColumns - 1) {

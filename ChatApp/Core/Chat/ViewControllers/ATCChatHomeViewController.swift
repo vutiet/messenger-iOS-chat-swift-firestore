@@ -10,6 +10,8 @@ import UIKit
 
 class ATCChatHomeViewController: ATCGenericCollectionViewController {
 
+    var threadsVC: ATCChatThreadsViewController?
+    
     init(configuration: ATCGenericCollectionViewControllerConfiguration,
          selectionBlock: ATCollectionViewSelectionBlock?,
          viewer: ATCUser) {
@@ -59,8 +61,12 @@ class ATCChatHomeViewController: ATCGenericCollectionViewController {
         threadsViewModel.parentViewController = homeVC
         homeVC.use(adapter: ATCViewControllerContainerRowAdapter(), for: "ATCViewControllerContainerViewModel")
 
+        homeVC.threadsVC = threadsVC
+        
         // Finish home VC configuration
         homeVC.genericDataSource = ATCGenericLocalHeteroDataSource(items: [storiesCarousel, threadsViewModel])
+        homeVC.collectionView.tag = 333
+        homeVC.view.backgroundColor = .green
         return homeVC
     }
 
@@ -85,6 +91,7 @@ class ATCChatHomeViewController: ATCGenericCollectionViewController {
         let vc = ATCGenericCollectionViewController(configuration: configuration, selectionBlock: ATCChatHomeViewController.storySelectionBlock(viewer: viewer))
         vc.genericDataSource = dataSource
         vc.use(adapter: ATCChatUserStoryAdapter(uiConfig: uiConfig), for: "ATCUser")
+        vc.view.backgroundColor = .yellow
         return vc
     }
 

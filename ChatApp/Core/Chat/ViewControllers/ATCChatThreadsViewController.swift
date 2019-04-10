@@ -33,12 +33,13 @@ class ATCChatThreadsViewController: ATCGenericCollectionViewController {
             hideScrollIndicators: false,
             hidesNavigationBar: false,
             headerNibName: nil,
-            scrollEnabled: false,
+            scrollEnabled: true,
             uiConfig: uiConfig
         )
 
         let vc = ATCChatThreadsViewController(configuration: collectionVCConfiguration, selectionBlock: ATCChatThreadsViewController.selectionBlock(viewer: viewer), viewer: ATCChatMockStore.users[0])
         vc.genericDataSource = dataSource
+        vc.view.backgroundColor = .red
         return vc
     }
 
@@ -55,5 +56,27 @@ class ATCChatThreadsViewController: ATCGenericCollectionViewController {
                 navController?.pushViewController(vc, animated: true)
             }
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("ATCChatThreadsViewController viewDidLoad frame: \(self.view.frame)")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("ATCChatThreadsViewController viewWillAppear frame: \(self.view.frame)")
+//        var currentFrame = self.view.frame
+//        currentFrame.size.height = 600
+//        self.view.frame = currentFrame
+//        self.collectionView.frame = currentFrame
+//        self.collectionView.backgroundColor = .purple
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("ATCChatThreadsViewController viewDidAppear frame: \(self.view.frame)")
+        
+//        self.view.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.size.width, height: 800)
     }
 }
